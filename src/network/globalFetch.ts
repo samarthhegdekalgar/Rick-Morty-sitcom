@@ -12,7 +12,7 @@ export interface requestInputType {
  * @param body - The body to be sent
  * @returns - The response from the server
  */
-export const fetchRequest = async<T>({ method = 'GET', url, body = undefined }: requestInputType): Promise<T> => {
+export const globalFetch = async<T>({ method = 'GET', url, body = undefined }: requestInputType): Promise<T> => {
 
     /**
      * we are using react query for this project and it is essential to return promise
