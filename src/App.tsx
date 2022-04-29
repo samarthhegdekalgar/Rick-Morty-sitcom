@@ -5,7 +5,11 @@ import './styles/index.css'
 
 function App() {
   return (
-    <Layout />
+    <Layout
+      mainContent={<span>Content</span>}
+      footerContent={<span>Footer</span>}
+      sliderContent={<span>Slider</span>}
+    />
   );
 }
 
