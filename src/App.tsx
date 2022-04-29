@@ -1,10 +1,11 @@
 import React from 'react';
+import Layout from './components/Layout';
+import './styles/global.css';
+import './styles/index.css'
 
 function App() {
   return (
-    <div>
-      <h1>Hello CodeSandbox</h1>
-    </div>
+    <Layout />
   );
 }
 
