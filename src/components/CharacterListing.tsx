@@ -15,14 +15,14 @@ const CharacterListing: FC = () => {
     const onScroll = () => {
         if (listInnerRef.current) {
             const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-            if (scrollTop + clientHeight === scrollHeight && hasNextPage) {
+            if (scrollTop + clientHeight >= scrollHeight - 20 && hasNextPage) {
                 fetchNextPage()
             }
         }
     };
 
     return (
-        <div className="grid grid-flow-row-dense lg:grid-cols-6 gap-4 grid-cols-1 h-full overflow-scroll" ref={listInnerRef} onScroll={onScroll}>
+        <div className="grid grid-flow-row-dense lg:grid-cols-6 gap-3 grid-cols-1 h-full overflow-scroll" ref={listInnerRef} onScroll={onScroll}>
             {characters?.map((character, index) => {
                 return (
                     <CharacterContainer

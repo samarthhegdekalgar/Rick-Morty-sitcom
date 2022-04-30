@@ -1,5 +1,4 @@
 import { FC } from "react"
-
 export interface CharacterContainerProps {
     image: string
     name: string
@@ -15,7 +14,7 @@ const CharacterContainer: FC<CharacterContainerProps> = ({ image, index, name }:
             src={image}
             key={name}
             alt={name}
-            className={`${index % 2 === 0 ? 'col-span-2 row-span-2' : 'col-span-1'} place-self-stretch `}
+            className={`${index % 2 === 0 ? 'col-span-2 row-span-2' : 'col-span-1'} place-self-stretch rounded-md`}
         />
     )
 }
