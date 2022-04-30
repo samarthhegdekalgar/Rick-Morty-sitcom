@@ -17,7 +17,7 @@ const Layout: FC<LayoutProps> = ({ mainContent, sliderContent }: LayoutProps) =>
     const isSmallScreen = useIsSmallScreen()
 
     return (
-        <AntdLayout className={'text-white h-screen overflow-clip bg-slate-900'}>
+        <AntdLayout className={'text-white h-screen overflow-clip bg-slate-900 p-2'}>
             <AntdLayout className="h-full">
                 <Content
                     className={`${collapsed ? 'w-full' : 'w-[60%] opacity-50 pointer-events-none'}  h-full transition-all overflow-hidden`}
