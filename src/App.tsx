@@ -1,5 +1,6 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import CharacterListing from './components/CharacterListing';
 import Layout from './components/Layout';
 import './styles/global.css';
 import './styles/index.css'
@@ -11,8 +12,7 @@ function App() {
     // Provide the client to your App
     <QueryClientProvider client={queryClient} contextSharing={true}>
       <Layout
-        mainContent={<span>Content</span>}
-        footerContent={<span>Footer</span>}
+        mainContent={<CharacterListing />}
         sliderContent={<span>Slider</span>}
       />
     </QueryClientProvider>
