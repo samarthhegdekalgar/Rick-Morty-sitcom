@@ -9,7 +9,7 @@ import EmptyData from "./EmptyData";
  * This will fetch the characters from the API and display them.
  */
 const CharacterListing: FC = () => {
-    const { data, fetchNextPage, hasNextPage, error: hasError } = useGetInfiniteCharacters()
+    const { data, fetchNextPage, hasNextPage, error: hasError, isLoading: isCharactersLoading } = useGetInfiniteCharacters()
     const characters = data?.pages.flatMap(page => page.results)
 
     const listInnerRef = useRef(null);
@@ -17,7 +17,7 @@ const CharacterListing: FC = () => {
     const onScroll = () => {
         if (listInnerRef.current) {
             const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-            if (scrollTop + clientHeight >= scrollHeight - 20 && hasNextPage) {
+            if (scrollTop + clientHeight >= scrollHeight - 5 && hasNextPage) {
                 fetchNextPage()
             }
         }
@@ -27,9 +27,9 @@ const CharacterListing: FC = () => {
     return (
         <>
             {
-                !characters || hasError ?
+                (!characters || hasError) && !isCharactersLoading ?
                     <EmptyData /> :
-                    <div className="grid grid-flow-row-dense lg:grid-cols-6 gap-3 grid-cols-1 h-full overflow-scroll" ref={listInnerRef} onScroll={onScroll}>
+                    <div className="grid grid-flow-row-dense lg:grid-cols-6 gap-3 grid-cols-1 overflow-scroll h-screen" ref={listInnerRef} onScroll={onScroll}>
                         {characters?.map((character, index) => {
                             return (
                                 <CharacterContainer

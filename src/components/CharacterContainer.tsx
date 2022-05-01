@@ -14,7 +14,7 @@ const CharacterContainer: FC<CharacterContainerProps> = ({ image, index, name }:
             src={image}
             key={name}
             alt={name}
-            className={`${index % 2 === 0 ? 'col-span-2 row-span-2' : 'col-span-1'} place-self-stretch rounded-md`}
+            className={`${index % 2 === 0 ? 'col-span-2 row-span-2' : 'col-span-1'} place-self-stretch rounded-md hover:cursor-pointer border-2 border-transparent hover:border-gray-500`}
         />
     )
 }
