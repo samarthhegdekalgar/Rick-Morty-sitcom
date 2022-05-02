@@ -3,6 +3,7 @@ export interface requestInputType {
     url: string
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
     body?: string
+    headers?: HeadersInit
 }
 
 /**
@@ -12,7 +13,9 @@ export interface requestInputType {
  * @param body - The body to be sent
  * @returns - The response from the server
  */
-export const globalFetch = async<T>({ method = 'GET', url, body = undefined }: requestInputType): Promise<T> => {
+export const globalFetch = async<T>({ method = 'GET', url, body = undefined, headers = {
+    'Content-Type': 'application/json',
+} }: requestInputType): Promise<T> => {
 
     /**
      * we are using react query for this project and it is essential to return promise
@@ -23,9 +26,7 @@ export const globalFetch = async<T>({ method = 'GET', url, body = undefined }: r
         window.fetch(url, {
             method,
             body,
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers,
         }).then(async (response) => {
             if (response.ok) {
                 resolve(await response.json() as T);

@@ -1,4 +1,3 @@
-import { Empty } from "antd";
 import { FC, useRef } from "react";
 import { useGetInfiniteCharacters } from "../hooks/useGetInfiniteCharacters";
 import CharacterContainer from "./CharacterContainer";
@@ -22,7 +21,6 @@ const CharacterListing: FC = () => {
             }
         }
     };
-    console.log(characters, hasError)
 
     return (
         <>
@@ -37,10 +35,12 @@ const CharacterListing: FC = () => {
                                     image={character.image}
                                     index={index}
                                     name={character.name}
+                                    detailedObject={character}
                                 />
                             )
                         })}
-                    </div>}
+                    </div>
+            }
         </>
     )
 }
